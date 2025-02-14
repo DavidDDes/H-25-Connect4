@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AtelierOO_102
+namespace Connect4
 {
     internal class Util
     {
@@ -31,8 +31,8 @@ namespace AtelierOO_102
 
         public void setNoirEtBlanc()
         {
-            Console.BackgroundColor = (ConsoleColor.Black);
-            Console.ForegroundColor = (ConsoleColor.White);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
 
         }
 
@@ -91,7 +91,7 @@ namespace AtelierOO_102
         //---------------------------------------------
         //
         //---------------------------------------------
-        public  double SaisirReel()
+        public double SaisirReel()
         {
             string? input = Console.ReadLine();
             if (double.TryParse(input, out double res))
@@ -112,7 +112,7 @@ namespace AtelierOO_102
         //---------------------------------------------
         //
         //---------------------------------------------
-        public void Sep(string msg="")
+        public void Sep(string msg = "")
         {
             Console.WriteLine($"----------{msg}----------");
         }

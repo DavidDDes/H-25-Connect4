@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AtelierOO_102.TP1;
 
-namespace AtelierOO_102.TP1
+namespace Connect4
 {
     internal class Case
     {
@@ -21,7 +22,7 @@ namespace AtelierOO_102.TP1
         }
         public void Afficher()
         {
-            Console.SetCursorPosition(5*_colonne, _rangee+Puissance4.DECALAGE_TITRE+2);
+            Console.SetCursorPosition(5 * _colonne, _rangee + Puissance4.DECALAGE_TITRE + 2);
             Console.Write("|_");
             Console.Write(Contenu);
             Console.Write("_|"); ;
