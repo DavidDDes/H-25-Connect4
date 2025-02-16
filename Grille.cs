@@ -12,14 +12,21 @@ namespace AtelierOO_102.TP1
 
         Colonne[] _colonnes = new Colonne[Puissance4.LARGEUR_GRILLE];
 
-        public Grille() 
+
+
+        /// <Entete>
+        /// 
+        /// <Entete>
+        public Grille()
         {
-         for (int i = 0; i < Puissance4.LARGEUR_GRILLE; i++)
+            for (int i = 0; i < Puissance4.LARGEUR_GRILLE; i++)
             {
                 _colonnes[i] = new Colonne(i);
             }
         }
-
+        /// <Entete>
+        /// 
+        /// <Entete>
         public void Afficher()
         {
             Console.SetCursorPosition(0, Puissance4.DECALAGE_TITRE);
@@ -29,20 +36,105 @@ namespace AtelierOO_102.TP1
                 uneColonne.Afficher();
             }
         }
-
+        /// <Entete>
+        /// 
+        /// <Entete>
         public void InsererJeton(int col, string contenu)
         {
             _colonnes[col].InsererJeton(contenu);
         }
+        /// <Entete>
+        /// 
+        /// <Entete>
+        public bool EstPleine(int col)
+        {
+            return _colonnes[col].EstPleine();
+        }
+        /// <Entete>
+        /// 
+        /// <Entete>
+        public Colonne[] ObtenirColonnes()
+        {
+            return _colonnes;
+        }
+
+        /// <Entete>
+        /// 
+        /// <Entete>
+        public bool VerifierVictoire(string s)
+        {
+
+            // le s est le symbole
+
+            // Horizontale
+            for (int i = 0; i < Puissance4.HAUTEUR_GRILLE; i++)
+            {
+                for (int j = 0; j < Puissance4.LARGEUR_GRILLE - 3; j++)
+                {
+                    if (_colonnes[j].ObtCase(i).Contenu == s &&
+                        _colonnes[j + 1].ObtCase(i).Contenu == s &&
+                        _colonnes[j + 2].ObtCase(i).Contenu == s &&
+                        _colonnes[j + 3].ObtCase(i).Contenu == s)
+                    {
+                        return true;
+                    }
+
+
+                } // for largeur grille
+            } // for hauteur grille
+
+            //Verticale
+            for (int j = 0; j < Puissance4.LARGEUR_GRILLE; j++)
+            {
+                for (int i = 0; i < Puissance4.HAUTEUR_GRILLE - 3; i++)
+                {
+                    if (_colonnes[j].ObtCase(i).Contenu == s &&
+                        _colonnes[j].ObtCase(i + 1).Contenu == s &&
+                        _colonnes[j].ObtCase(i + 2).Contenu == s &&
+                        _colonnes[j].ObtCase(i + 3).Contenu == s)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // Diagonales > \ <
+
+            for (int i = 0; i < Puissance4.HAUTEUR_GRILLE - 3; i++)
+            {
+                for (int j = 0; j < Puissance4.LARGEUR_GRILLE - 3; j++)
+                {
+                    if (_colonnes[j].ObtCase(i).Contenu == s &&
+                        _colonnes[j + 1].ObtCase(i + 1).Contenu == s &&
+                        _colonnes[j + 2].ObtCase(i + 2).Contenu == s &&
+                        _colonnes[j + 3].ObtCase(i + 3).Contenu == s)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // Diagonales > / <
+
+            for (int i = 0; i < Puissance4.HAUTEUR_GRILLE - 3; i++)
+            {
+                for (int j = 3; j < Puissance4.LARGEUR_GRILLE; j++)
+                {
+                    if (_colonnes[j].ObtCase(i).Contenu == s &&
+                        _colonnes[j - 1].ObtCase(i + 1).Contenu == s&&
+                        _colonnes[j - 2].ObtCase(i + 2).Contenu == s &&
+                        _colonnes[j - 3].ObtCase(i + 3).Contenu == s)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+
+            return false;
+        }// fin verif victoire
 
 
 
-
-
-
-
-
-
-
-    }
-}
+    }//
+}//
