@@ -32,14 +32,12 @@ namespace AtelierOO_102.TP1
 
             while (!partieTerminee)
             {
-
-
                 TraiterProchainCoup();
 
                 if (_grille.VerifierVictoire(joueurActif))
                 {
                     Console.WriteLine($"Le joueur {joueurActif} a gagné!");
-                    partieTerminee=true;
+                    partieTerminee = true;
                     break;
                 }
 
@@ -49,11 +47,17 @@ namespace AtelierOO_102.TP1
                     partieTerminee = true;
                     break;
                 }
+                if (joueurActif == "x")
+                {
+                    joueurActif = "o";
+                }
+                else
+                {
+                    joueurActif = "x";
+                }
             }
 
-
-                u.Pause();
-            
+            u.Pause();
         }
 
         /// <Entete>
@@ -64,9 +68,9 @@ namespace AtelierOO_102.TP1
         // verifie si il y a la place dans la grille
         public bool GrilleEstPleine()
         {
-            foreach (var colonne in _grille.ObtenirColonnes())  
+            foreach (var colonne in _grille.ObtenirColonnes())
             {
-                if (!colonne.EstPleine()) 
+                if (!colonne.EstPleine())
                 {
                     return false;
                 }
@@ -93,8 +97,7 @@ namespace AtelierOO_102.TP1
             _grille.InsererJeton(numCol, joueurActif);
             _grille.Afficher();
 
-            if (joueurActif == "x") { joueurActif = "y"; }
-            else { joueurActif = "x"; }
+            
         }
         /// <Entete>
         /// 
@@ -104,7 +107,7 @@ namespace AtelierOO_102.TP1
             Console.WriteLine("Votre choix: ");
             char choix = u.SaisirChar();
 
-            switch(choix)
+            switch (choix)
             {
                 case 'a':
                 case 'A':
@@ -131,7 +134,7 @@ namespace AtelierOO_102.TP1
                     break;
 
             }
-            return -1; // a changer
+            return -1;
         }
 
 

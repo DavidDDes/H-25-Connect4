@@ -39,6 +39,9 @@ namespace AtelierOO_102.TP1
         /// <Entete>
         /// 
         /// <Entete>
+        /// 
+
+
         public void InsererJeton(int col, string contenu)
         {
             _colonnes[col].InsererJeton(contenu);
@@ -76,6 +79,9 @@ namespace AtelierOO_102.TP1
                         _colonnes[j + 2].ObtCase(i).Contenu == s &&
                         _colonnes[j + 3].ObtCase(i).Contenu == s)
                     {
+                       // Console.WriteLine("H");
+                      //  Console.ReadKey(true);
+
                         return true;
                     }
 
@@ -93,11 +99,15 @@ namespace AtelierOO_102.TP1
                         _colonnes[j].ObtCase(i + 2).Contenu == s &&
                         _colonnes[j].ObtCase(i + 3).Contenu == s)
                     {
+                       // Console.Write("V");
+                        //Console.ReadKey(true);
+
+
                         return true;
                     }
                 }
             }
-
+            // return false;
             // Diagonales > \ <
 
             for (int i = 0; i < Puissance4.HAUTEUR_GRILLE - 3; i++)
@@ -109,6 +119,10 @@ namespace AtelierOO_102.TP1
                         _colonnes[j + 2].ObtCase(i + 2).Contenu == s &&
                         _colonnes[j + 3].ObtCase(i + 3).Contenu == s)
                     {
+                      //  Console.WriteLine("D1");
+                      //  Console.ReadKey(true);
+
+
                         return true;
                     }
                 }
@@ -121,10 +135,14 @@ namespace AtelierOO_102.TP1
                 for (int j = 3; j < Puissance4.LARGEUR_GRILLE; j++)
                 {
                     if (_colonnes[j].ObtCase(i).Contenu == s &&
-                        _colonnes[j - 1].ObtCase(i + 1).Contenu == s&&
+                        _colonnes[j - 1].ObtCase(i + 1).Contenu == s &&
                         _colonnes[j - 2].ObtCase(i + 2).Contenu == s &&
                         _colonnes[j - 3].ObtCase(i + 3).Contenu == s)
                     {
+                       // Console.WriteLine("D2");
+                       // Console.ReadKey(true);
+
+
                         return true;
                     }
                 }
